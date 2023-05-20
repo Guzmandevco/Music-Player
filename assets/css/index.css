@@ -15,125 +15,123 @@ body
     align-items: center;
     min-height: 100vh;
 }
-
 .background
 {
-    position: fixed;
-    min-height: 120vh;
-    width: 130%;
-    top: -30px;
-    left: -30px;
-    bottom: -30px;
-    height: 0;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: -1;
-    background-color: linear-gradient(45deg, rgba(255, 255, 255, 0.18), rgba(0,0,0,.25));
-    margin: 10px 20px 10px;
 }
-
 .background img
 {
-    position: relative;
+    opacity: 65%;
+    position: absolute;
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    filter: blur(10px);
     object-fit: cover;
+    background-position: left;
+    background-size: 100% 100%;
+    filter: opacity(10px);
 }
-
 .container
 {
-    width: 450px;
-    height: 500px;
-    background-color: #FFFFFF;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.5);
-}
-.container .image__container
-{
     position: relative;
-    height: 250px;
-    width: 250px;
-    top: -100px;
-    left: 0;
-    border-radius: .5rem;
-    overflow: hidden;
-    box-shadow: 15px 15px 85px rgba(0, 0, 0,0.10);
+    width: calc(100% - 100px);
+    max-width: 500px;
+    height: 520px;
+    border-radius: .75rem;
+    background-color: transparent;
+    box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.8),
+                10px 10px 20px rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    transition: .3s background-color ease-in-out;
 }
-
+.container:hover
+{
+    box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.6),
+    10px 10px 20px rgba(0, 0, 0, 0.6);
+}
+.image__container
+{
+    width: calc(100% - 150px);
+    height: 250px;
+    background-color: transparent;
+    box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.8),
+                10px 10px 20px rgba(0, 0, 0, 0.8);
+    border-radius: .75rem;
+    position: relative;
+    top: -60px;
+    margin: 0 auto;
+}
 .image__container img
 {
-    position: absolute;
-    left: 0;
-    top: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: .75rem;
 }
-.container .title__song
+.container span
 {
-    display: flex;
-    flex-direction: column;
-    column-gap: 10px;
-    margin-bottom: 40px;
+    display: block;
+    text-align: center;
 }
-.container .progress__bar
+.artist__name
+{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.progress__bar
 {
     position: relative;
-    width: 450px;
-    height: 10px;
-    background-color: #666;
-    top: 30px;
-    cursor: pointer;
-}
-.container .time__info
-{
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    position: relative;
+    background-color: #A3A3A3;
+    height: 5px;
+    margin: 20px 10px 10px 10px;
+    border-radius: 1px;
 }
-.container .progress__bar .progress
+.progress__bar .progress
 {
+    position: relative;
     background-color: #3D3D3D;
-    width: 0;
-    height: 100%;
-    border-radius: 0 4px 4px 0;
 }
-.container .time__info span
+.info__time
 {
-    position: relative;
-    top: -10px;
-}
-
-.container .title__song
-{
-    font-weight: 400;
-    /* font-size: 18px; */
+    position: absolute;
+    width: 100%;
+    top: -20px;
+    display: flex;
+    justify-content: space-between;
 }
 .buttons__player
 {
-    display: flex;
-    justify-content: space-evenly;
-    width: 200px;
-    position: relative;
-    top: 30px;
+    margin: 0 auto;
+    font-size: 24px;
 }
-.buttons__player .fas
+.buttons__player i
 {
-    font-size: 30px;
-    color: #333;
     transition: .3s color ease-in-out;
+    color: #000000;
     cursor: pointer;
+    margin: 0 10px 0 10px;
+}
+.buttons__player i:hover
+{
+    filter: opacity(80%);
 }
 
-.buttons__player .fas:hover
+@media only screen and (max-width: 464px)
 {
-    filter: brightness(30%);
+    .image__container
+    {
+        min-width: 200px;
+    }
 }
+    

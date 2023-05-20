@@ -96,10 +96,14 @@ function changeMusic(direction) {
 function updateProgressBar () {
   const {duration, currentTime} = song;
   const progress = (currentTime / duration) * 100;
-  progressBarElement.style.width = `${progress}%`;
   const formatTime = (time) => String(Math.floor(time)).padStart(2, '0');
-  songDurationElement.textContent = `${Math.floor(duration / 60)}:${formatTime(duration % 60)}`;
   currentTimeElement.textContent = `${Math.floor(currentTime / 60)}:${formatTime(currentTime % 60)}`;
+  if(!isNaN(song.duration)) {
+    progressBarElement.style.width = `${progress}%`;
+    songDurationElement.textContent = `${Math.floor(duration / 60)}:${formatTime(duration % 60)}`;
+  } else {
+    songDurationElement.textContent = `0:00`;
+  }
 }
 
 /**
@@ -110,11 +114,10 @@ function setProgress(e) {
   let width = e.target.offsetWidth;
   let clickX = e.offsetX;
   song.currentTime = (clickX / width) * song.duration;
-  console.log(width);
 }
 // call functions
-playBtnElement.addEventListener("click", ()=>togglePlayMusic());
-document.addEventListener("DOMContentLoaded", () => loadMusic(songsList[index]));
+playBtnElement.addEventListener("click", togglePlayMusic);
+document.addEventListener("DOMContentLoaded", () => loadMusic(songsList[1]));
 nextBtnElement.addEventListener("click", () => changeMusic(1));
 previousBtnElement.addEventListener("click", () => changeMusic(-1));
 progressBar.addEventListener("click", setProgress);
