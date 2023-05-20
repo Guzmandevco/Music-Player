@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&family=Ubuntu:wght@300;400;500;700&display=swap');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    font-family: 'Ubuntu', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.background
+{
+    position: fixed;
+    min-height: 120vh;
+    width: 130%;
+    top: -30px;
+    left: -30px;
+    bottom: -30px;
+    height: 0;
+    z-index: -1;
+    background-color: linear-gradient(45deg, rgba(255, 255, 255, 0.18), rgba(0,0,0,.25));
+    margin: 10px 20px 10px;
+}
+
+.background img
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    filter: blur(10px);
+    object-fit: cover;
+}
+
+.container
+{
+    width: 450px;
+    height: 500px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.5);
+}
+.container .image__container
+{
+    position: relative;
+    height: 250px;
+    width: 250px;
+    top: -100px;
+    left: 0;
+    border-radius: .5rem;
+    overflow: hidden;
+    box-shadow: 15px 15px 85px rgba(0, 0, 0,0.10);
+}
+
+.image__container img
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.container .title__song
+{
+    display: flex;
+    flex-direction: column;
+    column-gap: 10px;
+    margin-bottom: 40px;
+}
+.container .progress__bar
+{
+    position: relative;
+    width: 450px;
+    height: 10px;
+    background-color: #666;
+    top: 30px;
+    cursor: pointer;
+}
+.container .time__info
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.container .progress__bar .progress
+{
+    background-color: #3D3D3D;
+    width: 0;
+    height: 100%;
+    border-radius: 0 4px 4px 0;
+}
+.container .time__info span
+{
+    position: relative;
+    top: -10px;
+}
+
+.container .title__song
+{
+    font-weight: 400;
+    /* font-size: 18px; */
+}
+.buttons__player
+{
+    display: flex;
+    justify-content: space-evenly;
+    width: 200px;
+    position: relative;
+    top: 30px;
+}
+.buttons__player .fas
+{
+    font-size: 30px;
+    color: #333;
+    transition: .3s color ease-in-out;
+    cursor: pointer;
+}
+
+.buttons__player .fas:hover
+{
+    filter: brightness(30%);
+}
